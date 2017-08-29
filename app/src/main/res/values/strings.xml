@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Blog</string>
+    <string name="post_favorite_label">Favorite</string>
+    <string name="home_drawer_opened">Opened</string>
+    <string name="home_drawer_closed">Closed</string>
+    <string name="date_label_separator">&#160;&#160;-&#160;&#160;</string>
+    <string name="no_posts_found_label">No posts found</string>
+</resources>

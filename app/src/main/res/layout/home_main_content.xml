@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/homeRelativeLayout"
+    android:clipToPadding="false"
+    tools:context="renotekno.com.bloggerapiimplementation2.HomeActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/homeToolBar"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        app:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/homeViewPager"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/homeToolBar"
+        android:layout_above="@+id/menuBottom"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="start"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/menuBottom"
+        android:background="@color/colorPrimary"
+        app:itemIconTint="@drawable/home_bottom_selector"
+        app:itemTextColor="@drawable/home_bottom_selector"
+        app:menu="@menu/home_bottom_menu"/>
+
+</RelativeLayout>

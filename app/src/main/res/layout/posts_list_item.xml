@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/constraintItemViewGroup"
+    android:padding="16dp"
+    android:layout_height="wrap_content">
+
+    <!-- Post Tittle -->
+    <TextView
+        tools:text="Cara Mendapatkan Cash Point Blank Garena Gratis lorem dolor amet test..."
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/postTitle"
+        android:lineSpacingExtra="2sp"
+        android:textSize="16sp"
+        android:textColor="#212121"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+
+        android:fontFamily="sans-serif-medium"
+
+        app:layout_goneMarginRight="16dp"
+        app:layout_constraintTop_toTopOf="@+id/postThumbnail"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/postThumbnail" />
+
+    <!-- Post Date -->
+    <TextView
+        tools:text="21, June 2017"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:layout_marginTop="12dp"
+        android:id="@+id/postPublishedDate"
+
+        app:layout_constraintLeft_toLeftOf="@+id/postTitle"
+        app:layout_constraintTop_toBottomOf="@+id/postThumbnail" />
+
+    <!-- Separator -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_label_separator"
+        android:layout_marginTop="0dp"
+        android:textSize="12sp"
+        android:id="@+id/separator"
+
+        app:layout_constraintLeft_toRightOf="@+id/postPublishedDate"
+        app:layout_constraintBottom_toBottomOf="@+id/postPublishedDate"
+        app:layout_constraintTop_toTopOf="@+id/postPublishedDate" />
+
+    <!-- Post Label -->
+    <TextView
+        tools:text="Android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:id="@+id/postLabel"
+
+        app:layout_constraintLeft_toRightOf="@+id/separator"
+        app:layout_constraintTop_toTopOf="@+id/separator"
+        app:layout_constraintBottom_toBottomOf="@+id/separator" />
+
+    <!-- Comment icon -->
+    <View
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/ic_mode_comment_black_24dp"
+        android:id="@+id/commentIcon"
+        app:layout_constraintLeft_toLeftOf="@+id/postPublishedDate"
+        app:layout_constraintTop_toBottomOf="@+id/postPublishedDate" />
+
+    <!-- Post Comment total -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        tools:text="17"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="2dp"
+        android:id="@+id/postRepliesTotal"
+
+        app:layout_constraintLeft_toRightOf="@+id/commentIcon"
+        app:layout_constraintTop_toTopOf="@+id/commentIcon"
+        app:layout_constraintBottom_toBottomOf="@+id/commentIcon" />
+
+    <!-- View button to read later -->
+    <View
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_bookmark_border_grey_24dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginEnd="8dp"
+        android:id="@+id/readLaterViewButton"
+        app:layout_constraintTop_toTopOf="@+id/postPublishedDate"
+        app:layout_constraintBottom_toBottomOf="@+id/commentIcon"
+        app:layout_constraintRight_toLeftOf="@+id/shareViewButton"
+        />
+
+    <!-- View button tap to share -->
+    <View
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/ic_share_grey_24dp"
+        android:id="@+id/shareViewButton"
+        app:layout_constraintTop_toTopOf="@+id/readLaterViewButton"
+        app:layout_constraintBottom_toBottomOf="@+id/readLaterViewButton"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintRight_toRightOf="@+id/postThumbnail" />
+
+    <ImageView
+        tools:src="@drawable/mengenal_variable_pada_javascript"
+
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/postThumbnail"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
