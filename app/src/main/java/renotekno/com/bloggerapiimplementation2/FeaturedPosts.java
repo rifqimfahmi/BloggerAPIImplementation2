@@ -189,6 +189,7 @@ public class FeaturedPosts extends Fragment {
             // start extracting posts data from JSON response
             extractPostsData(response);
 
+            // update the view that the extracting has been done
             updateView();
 
             // remove the loading indicator
@@ -216,8 +217,9 @@ public class FeaturedPosts extends Fragment {
             String postImageThumbnail = post.has("images") ? post.getJSONArray("images").getJSONObject(0).getString("url") : null;
             String postRepliesTotal = post.getJSONObject("replies").getString("totalItems");
             String postLabel = post.has("labels") ? post.getJSONArray("labels").getString(0) : Data.UNCATEGORIZED_POST_LABEL;
+            String postID = post.getString("id");
 
-            Data.featuredPostSnippetList.add(new PostSnippet(postTitle, postLabel, postRepliesTotal, postImageThumbnail, postPublishedDate));
+            Data.featuredPostSnippetList.add(new PostSnippet(postTitle, postLabel, postRepliesTotal, postImageThumbnail, postPublishedDate, postID));
         }
     }
 

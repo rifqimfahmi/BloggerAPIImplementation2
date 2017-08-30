@@ -1,5 +1,6 @@
 package renotekno.com.bloggerapiimplementation2.Adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -7,11 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import renotekno.com.bloggerapiimplementation2.Model.Data;
 import renotekno.com.bloggerapiimplementation2.Model.PostSnippet;
+import renotekno.com.bloggerapiimplementation2.PostActivity;
 import renotekno.com.bloggerapiimplementation2.R;
 
 /**
@@ -20,6 +23,7 @@ import renotekno.com.bloggerapiimplementation2.R;
 
 public class PostsListAdapter extends RecyclerView.Adapter {
 
+    // TODO : Add comment to this adapter
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.posts_list_item, parent, false);
@@ -38,16 +42,19 @@ public class PostsListAdapter extends RecyclerView.Adapter {
         return Data.featuredPostSnippetList.size();
     }
 
-    public class PostItemVH extends RecyclerView.ViewHolder {
+    public class PostItemVH extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView postTitle;
         private TextView postPublishedDate;
         private TextView postLabel;
         private TextView postRepliesTotal;
         private ImageView postThumbnail;
+        private ImageView readLaterViewButton;
+        private ImageView shareViewButton;
         private View view;
+        private String postID;
 
-        public PostItemVH(View itemView) {
+        public PostItemVH(final View itemView) {
             super(itemView);
             view = itemView;
             postTitle = (TextView) itemView.findViewById(R.id.postTitle);
@@ -55,18 +62,45 @@ public class PostsListAdapter extends RecyclerView.Adapter {
             postLabel = (TextView) itemView.findViewById(R.id.postLabel);
             postRepliesTotal = (TextView) itemView.findViewById(R.id.postRepliesTotal);
             postThumbnail = (ImageView) itemView.findViewById(R.id.postThumbnail);
+            readLaterViewButton = (ImageView) view.findViewById(R.id.readLaterViewButton);
+            shareViewButton = (ImageView) view.findViewById(R.id.shareViewButton);
+
+            readLaterViewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(view.getContext(), "Added to read later", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            shareViewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(view.getContext(), "You have share this", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            itemView.setOnClickListener(this);
         }
 
         public void bindData(int position) {
             PostSnippet postSnippet = Data.featuredPostSnippetList.get(position);
 
+            postID = postSnippet.getPostID();
             // TODO : Add sanity check such as the length of the text and image URL is not null
             postTitle.setText(postSnippet.getPostTitle());
             postPublishedDate.setText(postSnippet.getPostPublishedDate());
             postLabel.setText(postSnippet.getPostLabel());
             postRepliesTotal.setText(postSnippet.getPostRepliesTotal());
 
+            // TODO : Add disk cache when loading image
             Glide.with(view.getContext()).load(postSnippet.getPostImageThumbnail()).into(postThumbnail);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(v.getContext(), PostActivity.class);
+            intent.putExtra(Data.POST_ID, postID);
+            v.getContext().startActivity(intent);
         }
     }
 }

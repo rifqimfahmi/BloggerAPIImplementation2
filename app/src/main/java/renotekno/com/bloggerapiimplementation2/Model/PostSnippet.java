@@ -18,12 +18,15 @@ public class PostSnippet {
     private String postImageThumbnail;
     private String postPublishedDate;
 
-    public PostSnippet(String postTtitle, String postLabel, String postRepliesTotal, String postImageThumbnail, String postPublishedDate) {
+    private String postID;
+
+    public PostSnippet(String postTtitle, String postLabel, String postRepliesTotal, String postImageThumbnail, String postPublishedDate, String postID) {
         this.postTitle = postTtitle;
         this.postLabel = postLabel;
         this.postRepliesTotal = postRepliesTotal;
         this.postImageThumbnail = postImageThumbnail;
         this.postPublishedDate = postPublishedDate;
+        this.postID = postID;
     }
 
     public String getPostTitle() {
@@ -54,5 +57,9 @@ public class PostSnippet {
         }
 
         return dateFormat;
+    }
+
+    public String getPostID() {
+        return postID;
     }
 }

@@ -43,6 +43,9 @@ public final class Data {
     // default post title length for the snippet post
     public static final int MAX_POST_SNIPPED_TITLE = 69;
 
+    // post ID label tag for intent
+    public static final String POST_ID = "post_id";
+
     /**
      * static array that hold the featured posts {@link renotekno.com.bloggerapiimplementation2.FeaturedPosts}  instance
      */

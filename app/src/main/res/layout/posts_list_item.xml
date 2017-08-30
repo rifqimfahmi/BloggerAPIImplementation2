@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?android:attr/selectableItemBackground"
     android:layout_width="match_parent"
     android:id="@+id/constraintItemViewGroup"
     android:padding="16dp"
@@ -91,10 +92,11 @@
         app:layout_constraintBottom_toBottomOf="@+id/commentIcon" />
 
     <!-- View button to read later -->
-    <View
+    <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/ic_bookmark_border_grey_24dp"
+        android:src="@drawable/ic_bookmark_border_grey_24dp"
+        android:background="?android:attr/actionBarItemBackground"
         android:layout_marginRight="8dp"
         android:layout_marginEnd="8dp"
         android:id="@+id/readLaterViewButton"
@@ -104,10 +106,11 @@
         />
 
     <!-- View button tap to share -->
-    <View
+    <ImageView
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:background="@drawable/ic_share_grey_24dp"
+        android:src="@drawable/ic_share_grey_24dp"
+        android:background="?android:attr/actionBarItemBackground"
         android:id="@+id/shareViewButton"
         app:layout_constraintTop_toTopOf="@+id/readLaterViewButton"
         app:layout_constraintBottom_toBottomOf="@+id/readLaterViewButton"
