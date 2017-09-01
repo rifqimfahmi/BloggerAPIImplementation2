@@ -92,7 +92,6 @@ public class PostsListAdapter extends RecyclerView.Adapter {
             postLabel.setText(postSnippet.getPostLabel());
             postRepliesTotal.setText(postSnippet.getPostRepliesTotal());
 
-            // TODO : Add disk cache when loading image
             Glide.with(view.getContext()).load(postSnippet.getPostImageThumbnail()).into(postThumbnail);
         }
 
@@ -100,6 +99,7 @@ public class PostsListAdapter extends RecyclerView.Adapter {
         public void onClick(View v) {
             Intent intent = new Intent(v.getContext(), PostActivity.class);
             intent.putExtra(Data.POST_ID, postID);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             v.getContext().startActivity(intent);
         }
     }

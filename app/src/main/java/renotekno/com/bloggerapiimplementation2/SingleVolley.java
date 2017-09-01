@@ -29,7 +29,7 @@ public class SingleVolley {
 
     private RequestQueue getRequestQueue() {
         if (requestQueue == null) {
-            requestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
+            requestQueue = Volley.newRequestQueue(mCtx);
         }
         return requestQueue;
     }

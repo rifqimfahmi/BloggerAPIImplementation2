@@ -138,7 +138,7 @@ public class FeaturedPosts extends Fragment {
         /**
          *  Start network request using Volley with {@link JsonObjectRequest}
          */
-        SingleVolley.getIstance(getContext()).addToRequestQueue(new JsonObjectRequest(Request.Method.GET,
+        SingleVolley.getIstance(getContext().getApplicationContext()).addToRequestQueue(new JsonObjectRequest(Request.Method.GET,
                 // get the featured posts URL from v3 Blogger API
                 Data.getFeaturedPostsURL(),
                 null,
